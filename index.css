@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Smythe', cursive;
+   
 } 
 
 header{
@@ -10,6 +11,56 @@ header{
 .header-img{
     width: 100%;
     max-height:100%
+}
+
+/* order detail div */
+.order-container{
+    border-bottom: 1px solid #D2D2D2;
+    width: calc(100% - 40px);
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+.order-detail-left{
+    display: flex;
+}
+
+.item-details{
+    padding-top: 18px;
+    line-height:20px;
+}
+
+.emoji{
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    padding-top:10px;
+    padding-right: 30px;
+}
+.item-name{
+    font-size:28px;
+    line-height: 17px;
+    padding-top: 5px;
+}
+.item-ingredients{
+    font-size: 16px;
+    line-height: 24px;
+    color: #8B8B8B;
+    padding-top:5px;
+}
+.item-price{
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000
+}
+.order-add-btn{
+    padding-top: 18px;
+    height: 50px;
+    width: 50px;
+
 }
 
 #order-btn{
