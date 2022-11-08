@@ -1,6 +1,7 @@
 import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
 const checkoutOrder = document.getElementById('checkout-details')
+const priceArray=[]
 
 
 document.addEventListener('click', function(e){
@@ -11,11 +12,29 @@ document.addEventListener('click', function(e){
     }
 })
 
+function addPrice(){
+    let sum = 0 
+    priceArray.forEach(function(price){
+        
+        sum += price
+        
+        
+        
+    })
+    
+    return sum 
+}
+
 
 
 function getOrderDetails(name, price){
     checkoutOrder.style.display='block'
-
+   
+    
+    priceArray.push(Number(price))
+    
+    
+    let sum = addPrice()
     let checkout = `
     <p>Your order</p>
 
@@ -26,7 +45,7 @@ function getOrderDetails(name, price){
 
     <div class="total">
         <p>Total Price:</p>
-        <p>${price}</p>
+        <p>${sum}</p>
     </div>
     
     <div class="btn">
