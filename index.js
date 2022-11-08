@@ -1,15 +1,47 @@
 import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
+const checkoutOrder = document.getElementById('checkout-details')
 
-// when user clicked the add button, get hold of the name and the price 
+
 document.addEventListener('click', function(e){
     if (e.target.dataset.name){
-        console.log(e.target.dataset.name)
-        console.log(e.target.dataset.price)
+        
+        getOrderDetails(e.target.dataset.name, e.target.dataset.price)
+
     }
 })
-// when add button clicked, 
 
+
+
+function getOrderDetails(name, price){
+    checkoutOrder.style.display='block'
+
+    let checkout = `
+    <p>Your order</p>
+
+    <div class="checkout-items">
+        <p>${name}</p>
+        <p>$${price}</p>
+    </div>
+
+    <div class="total">
+        <p>Total Price:</p>
+        <p>${price}</p>
+    </div>
+    
+    <div class="btn">
+    <button id="order-btn">Complete Order</button>
+    </div>
+
+
+    `
+    return checkoutOrder.innerHTML = checkout
+    
+    
+
+
+
+}
 
 function getMenu(){
 
@@ -60,6 +92,7 @@ function getMenu(){
 
 function render(){
     menuContent.innerHTML = getMenu()
+    
 }
 
 render()
