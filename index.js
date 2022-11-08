@@ -1,7 +1,20 @@
 import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
 
+// when user clicked the add button, get hold of the name and the price 
+document.addEventListener('click', function(e){
+    if (e.target.dataset.name){
+        console.log(e.target.dataset.name)
+        console.log(e.target.dataset.price)
+    }
+})
+// when add button clicked, 
+
+
 function getMenu(){
+
+
+
     let menuHtml = ""
     menuArray.forEach(function(menu){
         menuHtml +=  `
@@ -15,7 +28,7 @@ function getMenu(){
         
                  <div class="item-details">
         
-                    <div class="item-name">
+                    <div class="item-name" id='${menu.id}'>
                         ${menu.name}
                     </div>
         
@@ -31,7 +44,7 @@ function getMenu(){
             </div>
         
             <div class="order-add-btn">
-            <i class="fa fa-light fa-circle-plus fa-4x"></i>
+            <i class="fa fa-light fa-circle-plus fa-4x" data-name ='${menu.name}' data-price ='${menu.price}'></i>
             </div>
         </div>
         `
