@@ -1,65 +1,80 @@
 import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
 const checkoutOrder = document.getElementById('checkout-details')
-const priceArray=[]
+
+
+let orders = []
 
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.name){
         
-        getOrderDetails(e.target.dataset.name, e.target.dataset.price)
-
+        addItem(e.target.dataset.name, e.target.dataset.price)
     }
 })
 
-function addPrice(){
+
+function getPrice(){
     let sum = 0 
-    priceArray.forEach(function(price){
-        
+    orders.forEach(function({ price }){
         sum += price
-        
-        
-        
     })
-    
-    return sum 
+    return sum;
 }
 
 
-
-function getOrderDetails(name, price){
-    checkoutOrder.style.display='block'
-   
-    
-    priceArray.push(Number(price))
-    
-    
-    let sum = addPrice()
-    let checkout = `
+function updateCheckoutItems() {
+    const sum = getPrice();
+    const checkout = document.createElement('div');
+    checkout.innerHTML = `
     <p>Your order</p>
 
     <div class="checkout-items">
-        <p>${name}</p>
-        <p>$${price}</p>
+        ${orders.map(order => {
+            return `<p>
+                <span class="order-name">${order.name}</span> 
+
+                <a href="#" class="remove-button">Remove</a></p>
+                <p> 
+                <span class="order-price">$${order.price}</span>
+                
+            </p>`
+        }).join('')}
     </div>
+
+
 
     <div class="total">
         <p>Total Price:</p>
-        <p>${sum}</p>
+        <p>$${sum}</p>
     </div>
     
     <div class="btn">
     <button id="order-btn">Complete Order</button>
     </div>
-
-
     `
-    return checkoutOrder.innerHTML = checkout
     
+    checkout.querySelectorAll('.remove-button').forEach((button, idx) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            orders.splice(idx, 1);
+            updateCheckoutItems();
+        })
+    })
+
+    checkoutOrder.replaceChildren(checkout);
+}
+
+
+function addItem(name, price){
+    checkoutOrder.style.display='block'
+    orders.push({ price: Number(price), name:name })
+   
+
     
 
 
-
+    updateCheckoutItems();
 }
 
 function getMenu(){
