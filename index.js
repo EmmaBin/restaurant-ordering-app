@@ -32,10 +32,8 @@ function updateCheckoutItems() {
     <div class="checkout-items">
         ${orders.map(order => {
             return `<p>
-                <span class="order-name">${order.name}</span> 
+                <span class="order-name">${order.name} <a href="#" class="remove-button">Remove</a></span> 
 
-                <a href="#" class="remove-button">Remove</a></p>
-                <p> 
                 <span class="order-price">$${order.price}</span>
                 
             </p>`
