@@ -1,6 +1,7 @@
 import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
 const checkoutOrder = document.getElementById('checkout-details')
+const paymentPage = document.getElementById('payment-form')
 
 
 let orders = []
@@ -48,7 +49,7 @@ function updateCheckoutItems() {
     </div>
     
     <div class="btn">
-    <button id="order-btn">Complete Order</button>
+    <button id="complete-btn">Complete Order</button>
     </div>
     `
     
@@ -59,19 +60,22 @@ function updateCheckoutItems() {
             updateCheckoutItems();
         })
     })
+    
+    checkout.querySelector('#complete-btn').addEventListener('click', function(){
+        checkoutOrder.style.display='none'
+        paymentPage.style.display='block'
+    })
+
+
 
     checkoutOrder.replaceChildren(checkout);
+
 }
 
 
 function addItem(name, price){
     checkoutOrder.style.display='block'
     orders.push({ price: Number(price), name:name })
-   
-
-    
-
-
     updateCheckoutItems();
 }
 
