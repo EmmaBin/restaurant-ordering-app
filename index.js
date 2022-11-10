@@ -63,7 +63,7 @@ function updateCheckoutItems() {
     
     checkout.querySelector('#complete-btn').addEventListener('click', function(){
         checkoutOrder.style.display='none'
-        paymentPage.style.display='block'
+        
     })
 
 
