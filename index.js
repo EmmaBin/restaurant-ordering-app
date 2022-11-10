@@ -16,7 +16,7 @@ document.addEventListener('click', function(e){
     }
 })
 
-payBtn.addEventListener('click',function(){
+payBtn.addEventListener('submit',function(){
     paymentPage.style.display ='none'
     message.style.display = 'flex'
 
