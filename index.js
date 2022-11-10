@@ -2,6 +2,8 @@ import { menuArray } from "/data.js"
 const menuContent = document.getElementById('menu-content')
 const checkoutOrder = document.getElementById('checkout-details')
 const paymentPage = document.getElementById('payment-form')
+const payBtn = document.getElementById('pay-btn')
+const message = document.getElementById('thanks-message')
 
 
 let orders = []
@@ -14,6 +16,11 @@ document.addEventListener('click', function(e){
     }
 })
 
+payBtn.addEventListener('click',function(){
+    paymentPage.style.display ='none'
+    message.style.display = 'flex'
+
+})
 
 function getPrice(){
     let sum = 0 
@@ -63,6 +70,8 @@ function updateCheckoutItems() {
     
     checkout.querySelector('#complete-btn').addEventListener('click', function(){
         checkoutOrder.style.display='none'
+        paymentPage.style.display ='inline'
+        
         
     })
 
@@ -78,6 +87,8 @@ function addItem(name, price){
     orders.push({ price: Number(price), name:name })
     updateCheckoutItems();
 }
+
+
 
 function getMenu(){
 

@@ -74,10 +74,7 @@ p{
     font-weight: 400;
 }
 
-
 .checkout-items{
-
-
     border-bottom: 2px solid #393333;
     width:calc(100% - 40px);
     margin-left: 20px;
@@ -100,8 +97,6 @@ p{
 }
 
 #complete-btn{
-   
-
     border-style: none;
     background-color: #16DB99;
     color:#FFFFFF;
@@ -114,15 +109,26 @@ p{
     margin-bottom: 50px;
   
 }
+.remove-button{
+    text-decoration: none;
+    color:#BBBBBB;
+    font-size:0.75rem;
+    font-weight: 400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 24px;
+    padding-left: 0.7em;
 
+}
 /* payment-form */
+/* want to get rid of the big white space  */
+
 
 #payment-form{
     top:0;
     bottom:0;
     left:0;
     right:0;
-    margin:auto;
+    margin: auto;
     position: fixed;
     background-color: #FFFFFF;
     text-align: center;
@@ -132,9 +138,12 @@ p{
     border-radius: 4px;
     box-shadow:0 0 20px 1px #757575;
     padding: 10em;
+    display: none;
    
 }
-
+#payment-form p{
+    margin-top: 0;
+}
 #payment-form p,
 #payment-form button{
     font-size: 24px;
@@ -153,6 +162,7 @@ input{
     display: block;
     width: 25rem;
     height: 3.75rem;
+    cursor: pointer;
     
 }
 
@@ -163,5 +173,34 @@ input{
     border-style: none;
     color:whitesmoke;
     margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
+
+/* thank-you page after completing the order */
+#thanks-message{
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #ECFDF5;
+    color:#065F46;
+    width: calc(100% - 2.5rem);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    box-sizing:border-box;
+    margin: 0 1em;
+    margin-top:1.25em;
+    height: 7.5rem;
+    margin-bottom:1.25em;
+   
+
+
+    
+}
+.message{
+
+    
+}
